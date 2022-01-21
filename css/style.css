@@ -1,0 +1,100 @@
+* { box-sizing: border-box; }
+
+body {
+    background-color: black;
+}
+
+.btn {
+    /* padding: 10px 20px; */
+    font-size: 18px;
+}
+
+.header {
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 125px;
+}
+
+.game-header {
+    margin-bottom: 45px;
+    animation: pulsate 2.5s infinite alternate;
+    color: #fff;
+}
+
+/* 
+    text-shadow: [x-offset] [y-offset] [blur-radius] [color];
+    Got this from css-tricks.com
+*/
+@keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+    text-shadow:
+        0 0 4px white,
+        0 0 11px white,
+        0 0 19px white,
+        0 0 40px red,
+        0 0 80px red,
+        0 0 90px red,
+        0 0 100px red,
+        0 0 150px red;
+    }
+    0% {
+      /* Smaller blur radius */
+    text-shadow:
+        0 0 2px white,
+        0 0 4px white,
+        0 0 6px white,
+        0 0 10px red,
+        0 0 45px red,
+        0 0 55px red,
+        0 0 70px red,
+        0 0 80px red;
+    }
+}
+
+.game-creator, .game-instructions {
+    color: white;
+    font-family: sans-serif;
+}
+
+.start-quiz {
+    margin-left: 910px;
+    margin-top: 25px;
+}
+
+.card-body {
+    margin-top: 350px;
+    border: 2px solid red;
+}
+
+.card-text {
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.submit-text {
+    color: white;
+    font-size: 20px;
+}
+
+.results {
+    margin-top: 150px;
+    color: white;
+    font-family: sans-serif;
+    border: 2px solid red;
+}
+
+.your-answers, .correct-answers, .your-score-text {
+    margin: 5px;
+    font-size: 20px;
+}
+
+.answer-list, .score-outcome {
+    margin: 5px;
+    font-size: 18px;
+}
+
+.restart-game-section {
+    padding: 15px;
+}

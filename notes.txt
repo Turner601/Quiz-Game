@@ -1,0 +1,90 @@
+** Quiz Style Game **
+
+HTML:
+    Have a "start" screen where it gives some instructions on the game and has a start button as well. 
+    Have an H1 possibly followed by an H4 with text underneath this explaining the game and scoring. 
+    Create a "card" that will have the questions followed by 4 possible answers which will be buttons so the user can "click/select" one. Centered on the screen
+    * Update *
+    Need to do some DOM Manipulation via JS. Once you lay it out in HTML you can then build it in JS. 
+
+Styling:
+    This will just be done using simple CSS. Nothing to crazy but enough to make it interesting
+
+Javascript:
+    Create a class called QuizGame
+        Constructor: here we will create our variables...
+            call on the start button (document.get......)
+            call on the card...
+            call on the "answer buttons"...
+            call on the reset button...
+            call on the submit button...
+
+    ** Ideas to think about or not include once you start writing this **
+
+    Create a startGame function that will start the game (remove the game info but keep the H1 at the top?)
+        In here we will have it loop through all questions and display the possible answers to choose from on the card
+        Once the user has selected an answer it will go to the next question (possibly have it ask "is this your final answer?")
+        When the game is over, have it run the score function and display total correct/wrong answers after clicking on the submit button
+
+    Create a score function that will possibly keep the correct answers and wrong answers?
+        I think in order to know which answer is correct/wrong, give a state for the correct answer or possibly have the answer in the questions object?
+        Have this run when the user clicks on submit?
+
+    Create a function that will reset the game/score
+        Either display a reset button during game play or at the end of the game have it display under the "score"
+        This will clear out score and run the startGame function again?
+
+
+** Initial HTML to help do DOM Manipulation in JS **
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Quiz Game</title>
+</head>
+<body>
+    <header class="header container text-center" id="header">
+        <h1 id="gameHeader">Turner's Quiz Game</h1>
+        <p class="text-center" id="gameDescription">Each question will have 4 possible answers. Choose the correct answer, only 1 correct answer for each question. At the end of the quiz you will see how many you got correct and how many wrong. To start a game just click on "Start The Quiz" and to restart the game just click on "Restart The Quiz".</p>
+        <div class="d-inline-flex flex-column">
+            <button id="startButton" class="btn btn-primary start-game">Start The Quiz</button>
+            <button id="restartButton" class="btn btn-primary restart-game">Restart The Quiz</button>
+        </div>
+    </header>
+    <main class="main container" id="main">
+        <div class="card text-center" id="quizCard">
+            <div class="card-body" id="cardBody">
+                <h5 class="card-title" id="cardQuestionNum">Question #</h5>
+                <p class="card-text" id="cardQuestion">Here is where I'll put the quiz question</p>
+                <button class="btn btn-primary answer-button" id="answerBtn1">Answer 1</button>
+                <button class="btn btn-primary answer-button" id="answerBtn2">Answer 2</button>
+                <button class="btn btn-primary answer-button" id="answerBtn3">Answer 3</button>
+                <button class="btn btn-primary answer-button" id="answerBtn4">Answer 4</button>
+            </div>
+        </div>
+        <div id="results"></div>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+** Array for the questions **
+
+let questions = ["What was the most popular girls name in the UK in 2019?", "Which popular video game franchise has released games with the subtitles World At War and Black Ops?", "In what US State is the city Nashville?", "What is the currency of Denmark?", "What is the smallest planet in our solar system?", "Continental United States has 4 time zones, can you name them?", "Name the Coffee shop in US sitcom Friends", "How many human players are there on each side in a polo match?", "Which Disney Princess called Gus and Jaq friends?", "How many permanent teeth does a dog have?", "On average how far away is the moon from the earth in miles?", "Which country in the world is believed to have the most miles of motorway?", "What are the five colours of the Olympic rings?", "The Simpsons was the spin-off show of which American sketch series?", "Which color pill does Neo swallow in The Matrix?",]
+
+** Array for the answers **
+
+let answers = [["Sarah", "Megan", "Olivia", "Claire"], ["Call of Duty", "Fornite", "Bob The Builder", "Pokemon"], ["Hawaii", "Tennessee", "California", "New York"], ["Franks", "Krone", "Euros", "Dollars"], ["Pluto", "Ethor", "The Sun", "Mercury"], ["Left, Middle Left, Middle, Right", "Central, Pacific, Eastern, California", "Pacific, Mountain, Central, Eastern", "Zulu"], ["Central Perk","Coffee Shop", "Brew For You", "Morning Drip"], ["Six", "Five", "Seven", "Four"], ["Snow White", "Cinderella", "Ariel", "Belle"], ["36", "40", "38", "42"}, ["250,000", "238,000", "249,000", "200,000"], ["China", "Germany", "Finland", "England"], ["Blue, Green, Red, Black, Orange", "Blue, Yellow, White, Black, Red", "Blue, Green, Pink, Black, Red", "Blue, Yellow, Black, Green and Red"], ["Batman", "The Office", "The Tracey Ullman Show", "Pokemon"], ["Blue", "Green", "Red", "Yellow"]]
+
+** Array for correct answers **
+
+let correctAnswers = ["C", "A", "B", "B", "D", "C", "A", "D", "B", "D", "B", "A", "D", "C", "C"]
