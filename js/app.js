@@ -6,6 +6,7 @@ class QuizGame {
         this.prevQuestion = document.getElementById('prevQuestion');
         this.answerButtons = document.querySelectorAll('.answer-button');
         this.questionNumber = document.getElementById('cardQuestionNum');
+        this.image = document.getElementById('questionImg');
         this.question = document.getElementById('cardQuestion');
         this.results = document.getElementById('results');
         this.submitSection = document.getElementById('submitQuizSection');
@@ -20,6 +21,7 @@ class QuizGame {
         // Questions and answers for the quiz
         this.questions = [
             {
+                img: 'media/question1.jpg',
                 question: "What was the most popular girls name in the UK in 2019?",
                 answers: {
                     A: "Sarah",
@@ -30,6 +32,7 @@ class QuizGame {
                 correctAnswer: "C"
             },
             {
+                img: 'media/question2.jpg',
                 question: "Which popular video game franchise has released games with the subtitles World At War and Black Ops?",
                 answers: {
                     A: "Call of Duty",
@@ -40,6 +43,7 @@ class QuizGame {
                 correctAnswer: "A"
             },
             {
+                img: 'media/question3.jpg',
                 question: "In what US State is the city Nashville?",
                 answers: {
                     A: "Hawaii",
@@ -50,6 +54,7 @@ class QuizGame {
                 correctAnswer: "B"
             },
             {
+                img: 'media/question4.jpg',
                 question: "What is the currency of Denmark?",
                 answers: {
                     A: "Franks",
@@ -60,6 +65,7 @@ class QuizGame {
                 correctAnswer: "B"
             },
             {
+                img: 'media/question5.jpg',
                 question: "What is the smallest planet in our solar system?",
                 answers: {
                     A: "Pluto",
@@ -70,6 +76,7 @@ class QuizGame {
                 correctAnswer: "D"
             },
             {
+                img: 'media/question6.jpg',
                 question: "Continental United States has 4 time zones, can you name them?",
                 answers: {
                     A: "Left, Middle Left, Middle, Right",
@@ -80,6 +87,7 @@ class QuizGame {
                 correctAnswer: "C"
             },
             {
+                img: 'media/question7.jpg',
                 question: "Name the Coffee shop in US sitcom Friends",
                 answers: {
                     A: "Central Perk",
@@ -90,6 +98,7 @@ class QuizGame {
                 correctAnswer: "A"
             },
             {
+                img: 'media/question8.jpg',
                 question: "How many human players are there on each side in a polo match?",
                 answers: {
                     A: "Six",
@@ -100,6 +109,7 @@ class QuizGame {
                 correctAnswer: "D"
             },
             {
+                img: 'media/question9.jpg',
                 question: "Which Disney Princess called Gus and Jaq friends?",
                 answers: {
                     A: "Snow White",
@@ -110,6 +120,7 @@ class QuizGame {
                 correctAnswer: "B"
             },
             {
+                img: 'media/question10.jpg',
                 question: "How many permanent teeth does a dog have?",
                 answers: {
                     A: "36",
@@ -120,6 +131,7 @@ class QuizGame {
                 correctAnswer: "D"
             },
             {
+                img: 'media/question11.jpg',
                 question: "On average how far away is the moon from the earth in miles?",
                 answers: {
                     A: "250,000",
@@ -130,6 +142,7 @@ class QuizGame {
                 correctAnswer: "B"
             },
             {
+                img: 'media/question12.jpg',
                 question: "Which country in the world is believed to have the most miles of motorway?",
                 answers: {
                     A: "China",
@@ -140,6 +153,7 @@ class QuizGame {
                 correctAnswer: "A"
             },
             {
+                img: 'media/question13.jpg',
                 question: "What are the five colours of the Olympic rings?",
                 answers: {
                     A: "Blue, Green, Red, Black, Orange",
@@ -150,6 +164,7 @@ class QuizGame {
                 correctAnswer: "D"
             },
             {
+                img: 'media/question14.jpg',
                 question: "The Simpsons was the spin-off show of which American sketch series?",
                 answers: {
                     A: "Batman",
@@ -160,6 +175,7 @@ class QuizGame {
                 correctAnswer: "C"
             },
             {
+                img: 'media/question15.jpg',
                 question: "Which color pill does Neo swallow in The Matrix?",
                 answers: {
                     A: "Blue",
@@ -185,7 +201,7 @@ class QuizGame {
             })
         });
 
-        // This is our next button event listener this is populating the questions after you hit next question and re enabling the answer buttons.
+        // This is our next button event listener this is populating the questions after you hit next question and re-enabling the answer buttons.
         this.nextQuestion.addEventListener('click', () => {
             this.currentQuestion++;
             if (this.currentQuestion >= this.questions.length) {
@@ -197,20 +213,6 @@ class QuizGame {
                 this.buildQuiz();
             }
         });
-
-        // Add event listener for prev question button to go back a question(s) or just take this away (Problem with going back 2 questions, doesn't save answers nor remove answers from this.userAnswers. Look into this more)
-        // Meaning if I click Previous button twice and then Next once, I can re-answer a question but my previous answer is still stored in this.userAnswers
-        // this.prevQuestion.addEventListener('click', () => {
-        //     this.currentQuestion--;
-        //     if (this.currentQuestion >= this.questions.length) {
-
-        //     } else {
-        //         this.answerButtons.forEach(el => {
-        //             el.disabled = true;
-        //         });
-        //         this.buildQuiz();
-        //     }
-        // });
 
         // Event listener for submit button. This will do multiple things when submit is clicked
         this.submitButton.addEventListener('click', () => {
@@ -227,8 +229,8 @@ class QuizGame {
                 this.rightAnswers.push(this.questions[r].correctAnswer)
             };
             // Give a point if the user selected the right answer
-            for (let i = 0; i < 15; i++) {
-                if (this.userAnswers[i] === this.rightAnswers[i]) {
+            for (let p = 0; p < 15; p++) {
+                if (this.userAnswers[p] === this.rightAnswers[p]) {
                     score++
                 }
             };
@@ -258,7 +260,6 @@ class QuizGame {
     };
 
     init() {
-        // Initializing the initial question and answers
         this.buildQuiz();
         this.startQuiz();
         this.restartQuiz();
@@ -267,10 +268,11 @@ class QuizGame {
     buildQuiz() {
         // Pick the questions in order and modify the answer buttons
         this.cardQuestionNum = this.currentQuestion;
+        this.image.src = this.questions[this.currentQuestion].img;
         this.question.innerText = this.questions[this.currentQuestion].question;
-        this.answerButtons[0].innerText = this.questions[this.currentQuestion].answers.A
-        this.answerButtons[1].innerText = this.questions[this.currentQuestion].answers.B
-        this.answerButtons[2].innerText = this.questions[this.currentQuestion].answers.C
+        this.answerButtons[0].innerText = this.questions[this.currentQuestion].answers.A;
+        this.answerButtons[1].innerText = this.questions[this.currentQuestion].answers.B;
+        this.answerButtons[2].innerText = this.questions[this.currentQuestion].answers.C;
         this.answerButtons[3].innerText = this.questions[this.currentQuestion].answers.D
     };
 
@@ -290,17 +292,9 @@ class QuizGame {
         let restart = document.querySelector('.restart-quiz');
         // Event listener for when the restart button is clicked
         restart.addEventListener('click', () => {
-            location.reload()
-            // header.classList.remove('d-none');
-            // this.results.classList.add('d-none');
-            // restartQuiz.classList.add('d-none');
-            // let score = 0;
-            // // this.rightAnswers = [];
-            // // this.userAnswers = [];
-            // console.log(score);
+            location.reload();
         })
-    }
-
+    };
 }
 
 let action = new QuizGame();

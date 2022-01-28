@@ -14,21 +14,22 @@
     <header class="header" id="header">
         <div class="container">
             <h1 class="game-header text-center">Quiz Game</h1>
-            <h4 class="game-creator text-center">Created By Turner Foote</h4>
+            <!-- <h4 class="game-creator text-center">Created By Turner Foote</h4> -->
             <h5 class="game-instructions text-center">The quiz consists of 15 random questions. Each question will have 4 answers to choose from which only 1 of the 4 will be the correct answer. After choosing your answer, click on the "Next Question" button to move on. Once you are done with the quiz, click on the "Submit Quiz" button to see your score. Must get 8 or more correct to pass and less than 8 is a fail. Once you have chosen your answer that will be your final answer so choose wisely.</h5>
+            <button class="start-quiz btn btn-success" id="startQuiz">Start Quiz</button>
         </div>
-        <button class="start-quiz btn btn-success" id="startQuiz">Start Quiz</button>
     </header>
     <main class="main" id="main">
         <div id="quizGame">
             <div class="card-body text-center container d-none" id="cardBody">
                 <h5 class="card-title" id="cardQuestionNum"></h5>
+                <div class="question-picture" id="questionPicture"><img src="" alt="" class="question-image img-fluid" id="questionImg"></div>
                 <p class="card-text mb-4" id="cardQuestion"></p>
                 <button class="btn btn-primary answer-button" id="A"></button>
                 <button class="btn btn-primary answer-button" id="B"></button>
                 <button class="btn btn-primary answer-button" id="C"></button>
                 <button class="btn btn-primary answer-button" id="D"></button>
-                <div class="prev-question">
+                <div class="next-prev-question">
                     <!-- <button class="prev-question mt-4 btn btn-dark" id="prevQuestion">Prev Question</button> -->
                     <button class="next-question mt-4 btn btn-dark" id="nextQuestion">Next Question</button>
                 </div>

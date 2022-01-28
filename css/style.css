@@ -58,13 +58,20 @@ body {
 }
 
 .start-quiz {
-    margin-left: 910px;
-    margin-top: 25px;
+    display: block;
+    margin: 0 auto;
+    /* margin-left: 910px;
+    margin-top: 25px; */
 }
 
 .card-body {
-    margin-top: 350px;
+    margin-top: 225px;
     border: 2px solid red;
+}
+
+.question-image {
+    width: 500px;
+    height: 300px;
 }
 
 .card-text {

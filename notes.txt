@@ -74,6 +74,24 @@ Javascript:
 </body>
 </html>
 
+** Play with the restartQuiz() some more to get it all working correctly without having to use location.reload() **
+            restartQuiz() {
+        // Create a variable for the restart button
+        let restart = document.querySelector('.restart-quiz');
+        // Event listener for when the restart button is clicked
+        restart.addEventListener('click', () => {
+            location.reload();
+            // header.classList.remove('d-none');
+            // this.results.classList.add('d-none');
+            // restartQuiz.classList.add('d-none');
+            // this.win.classList.add('d-none');
+            // this.fail.classList.add('d-none');
+            // let score = 0;
+            // this.rightAnswers = [];
+            // this.userAnswers = [];
+            // this.currentQuestion = 0;
+            // this.buildQuiz();
+
 
 
 
@@ -85,6 +103,24 @@ let questions = ["What was the most popular girls name in the UK in 2019?", "Whi
 
 let answers = [["Sarah", "Megan", "Olivia", "Claire"], ["Call of Duty", "Fornite", "Bob The Builder", "Pokemon"], ["Hawaii", "Tennessee", "California", "New York"], ["Franks", "Krone", "Euros", "Dollars"], ["Pluto", "Ethor", "The Sun", "Mercury"], ["Left, Middle Left, Middle, Right", "Central, Pacific, Eastern, California", "Pacific, Mountain, Central, Eastern", "Zulu"], ["Central Perk","Coffee Shop", "Brew For You", "Morning Drip"], ["Six", "Five", "Seven", "Four"], ["Snow White", "Cinderella", "Ariel", "Belle"], ["36", "40", "38", "42"}, ["250,000", "238,000", "249,000", "200,000"], ["China", "Germany", "Finland", "England"], ["Blue, Green, Red, Black, Orange", "Blue, Yellow, White, Black, Red", "Blue, Green, Pink, Black, Red", "Blue, Yellow, Black, Green and Red"], ["Batman", "The Office", "The Tracey Ullman Show", "Pokemon"], ["Blue", "Green", "Red", "Yellow"]]
 
-** Array for correct answers **
+** Things to add later on **
 
-let correctAnswers = ["C", "A", "B", "B", "D", "C", "A", "D", "B", "D", "B", "A", "D", "C", "C"]
+- Have previous button work. Meaning when you click the previous button have it "pop" the previous answer selected and let them choose again. Either only have it go back one question or let it go all the way back to question 1. Need to have buttons not show "disabled" when going back 1 question as well. Currently can go back 1 question but can't select new answer but if you go back 2 questions and then forward once you can select answer again but doesn't remove old answer.
+
+// Add event listener for prev question button to go back a question(s) or just take this away (Problem with going back 2 questions, doesn't save answers nor remove answers from this.userAnswers. Look into this more)
+        // Meaning if I click Previous button twice and then Next once, I can re-answer a question but my previous answer is still stored in this.userAnswers
+        // this.prevQuestion.addEventListener('click', () => {
+        //     this.currentQuestion--;
+        //     if (this.currentQuestion >= this.questions.length) {
+
+        //     } else {
+        //         this.answerButtons.forEach(el => {
+        //             el.disabled = true;
+        //         });
+        //         this.buildQuiz();
+        //     }
+        // });
+
+- Possibly have the next button only show when an answer is selected. Might have to put the answers in a form in order to use the "required" method. 
+
+
