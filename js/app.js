@@ -1,9 +1,8 @@
 class QuizGame {
     constructor() {
-        // Theses are our default values and html elements we are grabbing from the dom
+        // Theses are my default values and html elements we are grabbing from the dom
         this.currentQuestion = 0;
         this.nextQuestion = document.getElementById('nextQuestion');
-        this.prevQuestion = document.getElementById('prevQuestion');
         this.answerButtons = document.querySelectorAll('.answer-button');
         this.questionNumber = document.getElementById('cardQuestionNum');
         this.image = document.getElementById('questionImg');

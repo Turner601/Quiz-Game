@@ -107,8 +107,9 @@ let answers = [["Sarah", "Megan", "Olivia", "Claire"], ["Call of Duty", "Fornite
 
 - Have previous button work. Meaning when you click the previous button have it "pop" the previous answer selected and let them choose again. Either only have it go back one question or let it go all the way back to question 1. Need to have buttons not show "disabled" when going back 1 question as well. Currently can go back 1 question but can't select new answer but if you go back 2 questions and then forward once you can select answer again but doesn't remove old answer.
 
-// Add event listener for prev question button to go back a question(s) or just take this away (Problem with going back 2 questions, doesn't save answers nor remove answers from this.userAnswers. Look into this more)
-        // Meaning if I click Previous button twice and then Next once, I can re-answer a question but my previous answer is still stored in this.userAnswers
+    // Add event listener for prev question button to go back a question(s) or just take this away (Problem with going back 2 questions, doesn't remove answers from this.userAnswers. Look into this more)
+    // Meaning if I click Previous button twice and then Next once, I can re-answer a question but my previous answer is still stored in this.userAnswers
+        
         // this.prevQuestion.addEventListener('click', () => {
         //     this.currentQuestion--;
         //     if (this.currentQuestion >= this.questions.length) {
@@ -123,4 +124,4 @@ let answers = [["Sarah", "Megan", "Olivia", "Claire"], ["Call of Duty", "Fornite
 
 - Possibly have the next button only show when an answer is selected. Might have to put the answers in a form in order to use the "required" method. 
 
-
+- Have the questions generate randomly as well as the answers. That way each time someone takes the quiz it will never be in the same order. Add more questions as well and have 10-15 generate at a time
